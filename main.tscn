@@ -1,15 +1,20 @@
-[gd_scene load_steps=14 format=3 uid="uid://3kt6gpgtpj15"]
+[gd_scene load_steps=19 format=3 uid="uid://3kt6gpgtpj15"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_0s0jn"]
 [ext_resource type="PackedScene" uid="uid://b5kboq1s17215" path="res://scenes/UI/Shipped.tscn" id="2_hesnc"]
 [ext_resource type="PackedScene" uid="uid://betintjpdqgyi" path="res://scenes/case/belt_chain.tscn" id="2_tls7k"]
 [ext_resource type="Texture2D" uid="uid://bgrw27dxvgtrp" path="res://textures/pause.png" id="3_8reqb"]
 [ext_resource type="Texture2D" uid="uid://cj0fmbi2jitkk" path="res://textures/background.png" id="5_dj23d"]
+[ext_resource type="Texture2D" uid="uid://ckiokiik2daby" path="res://textures/pause_hover.png" id="5_ivebb"]
 [ext_resource type="Texture2D" uid="uid://cb8iqb3xdwucq" path="res://textures/popup_tuto.png" id="6_d8xgf"]
+[ext_resource type="Texture2D" uid="uid://c44ubojm3j7de" path="res://textures/resume.png" id="6_xeg1n"]
 [ext_resource type="Texture2D" uid="uid://51m6fsmchqq3" path="res://textures/popup.png" id="7_1npuv"]
+[ext_resource type="Texture2D" uid="uid://c33ludg6tl81f" path="res://textures/resume_hover.png" id="7_gkqio"]
 [ext_resource type="Texture2D" uid="uid://w8fwnalbr5dp" path="res://textures/button.png" id="7_n44xs"]
+[ext_resource type="Texture2D" uid="uid://catdvj7o5g0p3" path="res://textures/fast.png" id="8_aj4dv"]
 [ext_resource type="Texture2D" uid="uid://cbcds3oj5v7qk" path="res://textures/button_clic.png" id="8_drgd5"]
 [ext_resource type="Texture2D" uid="uid://duarbqdbup0m" path="res://textures/button_hover.png" id="9_73ks4"]
+[ext_resource type="Texture2D" uid="uid://dhl8kflgujvqc" path="res://textures/fast_hover.png" id="9_wufiv"]
 [ext_resource type="AudioStream" uid="uid://djpwf3ax68d17" path="res://sounds/ship1.ogg" id="11_bc3yh"]
 [ext_resource type="AudioStream" uid="uid://yu0y2uaspa67" path="res://sounds/clic.ogg" id="11_cn02v"]
 [ext_resource type="AudioStream" uid="uid://b6w22wxrkqt04" path="res://sounds/ship2.ogg" id="12_8mt7j"]
@@ -47,16 +52,24 @@ layout_mode = 2
 [node name="Shipped5" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_hesnc")]
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 21.0
+[node name="pause" type="TextureButton" parent="CanvasLayer"]
+offset_left = 40.0
 offset_top = 14.0
-offset_right = 85.0
+offset_right = 104.0
 offset_bottom = 78.0
 texture_normal = ExtResource("3_8reqb")
 texture_pressed = ExtResource("3_8reqb")
-texture_hover = ExtResource("3_8reqb")
-texture_disabled = ExtResource("3_8reqb")
-texture_focused = ExtResource("3_8reqb")
+texture_hover = ExtResource("5_ivebb")
+
+[node name="resume" type="TextureButton" parent="CanvasLayer"]
+visible = false
+offset_left = 40.0
+offset_top = 14.0
+offset_right = 104.0
+offset_bottom = 78.0
+texture_normal = ExtResource("6_xeg1n")
+texture_pressed = ExtResource("6_xeg1n")
+texture_hover = ExtResource("7_gkqio")
 
 [node name="score" type="Label" parent="CanvasLayer"]
 anchors_preset = 7
@@ -73,6 +86,46 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Score : 0"
 horizontal_alignment = 1
+
+[node name="paused" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 347.0
+offset_top = 95.0
+offset_right = 452.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 30
+text = "Paused"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 4.0
+offset_top = 81.0
+offset_right = 145.0
+offset_bottom = 133.0
+text = "pause (space)"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 651.0
+offset_top = 495.0
+offset_right = 800.0
+offset_bottom = 521.0
+text = "Normal (x1 score)"
+horizontal_alignment = 1
+
+[node name="fast" type="TextureButton" parent="CanvasLayer"]
+offset_left = 689.0
+offset_top = 522.0
+offset_right = 753.0
+offset_bottom = 586.0
+texture_normal = ExtResource("8_aj4dv")
+
+[node name="fast_off" type="TextureButton" parent="CanvasLayer"]
+visible = false
+offset_left = 689.0
+offset_top = 522.0
+offset_right = 753.0
+offset_bottom = 586.0
+texture_normal = ExtResource("9_wufiv")
 
 [node name="belt_chain" parent="." instance=ExtResource("2_tls7k")]
 
