@@ -1,0 +1,321 @@
+[gd_scene load_steps=7 format=3 uid="uid://betintjpdqgyi"]
+
+[ext_resource type="Script" path="res://scenes/case/belt_chain.gd" id="1_0u6tc"]
+[ext_resource type="PackedScene" uid="uid://cjtuurjtmnxbf" path="res://scenes/case/belt.tscn" id="2_n1r2o"]
+[ext_resource type="PackedScene" uid="uid://ct4o5tqtn6i1s" path="res://scenes/case/belt_choice.tscn" id="3_7jbck"]
+[ext_resource type="PackedScene" uid="uid://d21by0twhby0p" path="res://scenes/case/belt_storer.tscn" id="4_31kbq"]
+[ext_resource type="PackedScene" uid="uid://ufigclguyluv" path="res://scenes/storage/storage.tscn" id="5_pn2i0"]
+[ext_resource type="Texture2D" uid="uid://coi0ckj5x74dd" path="res://textures/storage_ship.png" id="6_r2ru6"]
+
+[node name="belt_chain" type="Node2D" node_paths=PackedStringArray("start_belt")]
+script = ExtResource("1_0u6tc")
+start_belt = NodePath("belt47")
+
+[node name="belt2" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(178, 498)
+next = NodePath("../belt3")
+
+[node name="belt3" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(218, 498)
+next = NodePath("../belt_choice")
+
+[node name="belt_choice" parent="." node_paths=PackedStringArray("default_next", "alt_next") instance=ExtResource("3_7jbck")]
+position = Vector2(258, 498)
+default_next = NodePath("../belt7")
+alt_next = NodePath("../belt5")
+rotate = true
+
+[node name="belt5" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(298, 498)
+next = NodePath("../belt6")
+
+[node name="belt6" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(338, 498)
+next = NodePath("../belt8")
+
+[node name="belt8" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(378, 498)
+next = NodePath("../belt_choice2")
+
+[node name="belt_choice2" parent="." node_paths=PackedStringArray("default_next", "alt_next") instance=ExtResource("3_7jbck")]
+position = Vector2(418, 498)
+default_next = NodePath("../belt16")
+alt_next = NodePath("../belt36")
+rotate = true
+
+[node name="belt36" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(458, 498)
+next = NodePath("../belt37")
+
+[node name="belt37" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(498, 498)
+next = NodePath("../belt38")
+
+[node name="belt38" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(538, 498)
+next = NodePath("../belt35")
+
+[node name="belt35" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(578, 498)
+next = NodePath("../belt29")
+rotate = true
+
+[node name="belt29" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(578, 458)
+next = NodePath("../belt30")
+rotate = true
+
+[node name="belt30" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(578, 418)
+next = NodePath("../belt27")
+rotate = true
+
+[node name="belt27" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(578, 378)
+next = NodePath("../belt31")
+rotate = true
+
+[node name="belt32" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(578, 298)
+next = NodePath("../belt33")
+rotate = true
+
+[node name="belt33" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(578, 258)
+next = NodePath("../belt34")
+rotate = true
+
+[node name="belt34" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(578, 218)
+next = NodePath("../belt28")
+rotate = true
+
+[node name="belt16" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(419, 458)
+next = NodePath("../belt_choice7")
+rotate = true
+
+[node name="belt_choice7" parent="." node_paths=PackedStringArray("default_next", "alt_next") instance=ExtResource("3_7jbck")]
+position = Vector2(418, 418)
+default_next = NodePath("../belt_storer3")
+alt_next = NodePath("../belt17")
+
+[node name="belt17" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(418, 378)
+next = NodePath("../belt_choice6")
+rotate = true
+
+[node name="belt18" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(418, 298)
+next = NodePath("../belt_choice8")
+rotate = true
+
+[node name="belt_choice8" parent="." node_paths=PackedStringArray("default_next", "alt_next") instance=ExtResource("3_7jbck")]
+position = Vector2(418, 258)
+default_next = NodePath("../belt_storer4")
+alt_next = NodePath("../belt19")
+
+[node name="belt19" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(418, 218)
+next = NodePath("../belt23")
+rotate = true
+
+[node name="belt_storer" parent="." node_paths=PackedStringArray("storage_next") instance=ExtResource("4_31kbq")]
+position = Vector2(298, 418)
+storage_next = NodePath("../storage")
+
+[node name="storage" parent="." instance=ExtResource("5_pn2i0")]
+position = Vector2(350, 416)
+
+[node name="belt_storer3" parent="." node_paths=PackedStringArray("storage_next") instance=ExtResource("4_31kbq")]
+position = Vector2(458, 418)
+storage_next = NodePath("../storage3")
+
+[node name="storage3" parent="." instance=ExtResource("5_pn2i0")]
+position = Vector2(510, 419)
+
+[node name="belt_storer4" parent="." node_paths=PackedStringArray("storage_next") instance=ExtResource("4_31kbq")]
+position = Vector2(458, 256)
+storage_next = NodePath("../storage4")
+
+[node name="storage4" parent="." instance=ExtResource("5_pn2i0")]
+position = Vector2(510, 257)
+
+[node name="belt_storer2" parent="." node_paths=PackedStringArray("storage_next") instance=ExtResource("4_31kbq")]
+position = Vector2(298, 258)
+storage_next = NodePath("../storage2")
+
+[node name="storage2" parent="." instance=ExtResource("5_pn2i0")]
+position = Vector2(350, 258)
+
+[node name="belt7" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(258, 458)
+next = NodePath("../belt_choice4")
+rotate = true
+
+[node name="belt_choice4" parent="." node_paths=PackedStringArray("default_next", "alt_next") instance=ExtResource("3_7jbck")]
+position = Vector2(258, 418)
+default_next = NodePath("../belt_storer")
+alt_next = NodePath("../belt9")
+
+[node name="belt9" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(258, 378)
+next = NodePath("../belt_choice3")
+rotate = true
+
+[node name="belt_choice3" parent="." node_paths=PackedStringArray("default_next", "alt_next") instance=ExtResource("3_7jbck")]
+position = Vector2(258, 338)
+default_next = NodePath("../belt10")
+alt_next = NodePath("../belt13")
+rotate = true
+
+[node name="belt10" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(258, 298)
+next = NodePath("../belt_choice5")
+rotate = true
+
+[node name="belt_choice5" parent="." node_paths=PackedStringArray("default_next", "alt_next") instance=ExtResource("3_7jbck")]
+position = Vector2(258, 258)
+default_next = NodePath("../belt_storer2")
+alt_next = NodePath("../belt11")
+
+[node name="belt11" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(258, 218)
+next = NodePath("../belt12")
+rotate = true
+
+[node name="belt12" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(258, 178)
+next = NodePath("../belt20")
+
+[node name="belt31" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(578, 338)
+next = NodePath("../belt32")
+rotate = true
+
+[node name="belt13" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(298, 338)
+next = NodePath("../belt14")
+
+[node name="belt14" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(338, 338)
+next = NodePath("../belt15")
+
+[node name="belt15" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(378, 338)
+next = NodePath("../belt_choice6")
+
+[node name="belt_choice6" parent="." node_paths=PackedStringArray("default_next", "alt_next") instance=ExtResource("3_7jbck")]
+position = Vector2(418, 338)
+default_next = NodePath("../belt18")
+alt_next = NodePath("../belt39")
+rotate = true
+
+[node name="belt39" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(458, 338)
+next = NodePath("../belt40")
+
+[node name="belt40" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(498, 338)
+next = NodePath("../belt41")
+
+[node name="belt41" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(538, 338)
+next = NodePath("../belt31")
+
+[node name="belt20" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(298, 178)
+next = NodePath("../belt21")
+
+[node name="belt21" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(338, 178)
+next = NodePath("../belt22")
+
+[node name="belt22" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(378, 178)
+next = NodePath("../belt23")
+
+[node name="belt23" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(418, 178)
+next = NodePath("../belt24")
+
+[node name="belt24" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(458, 178)
+next = NodePath("../belt25")
+
+[node name="belt25" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(498, 178)
+next = NodePath("../belt26")
+
+[node name="belt26" parent="." node_paths=PackedStringArray("next") instance=ExtResource("2_n1r2o")]
+position = Vector2(538, 178)
+next = NodePath("../belt28")
+
+[node name="belt28" parent="." instance=ExtResource("2_n1r2o")]
+position = Vector2(578, 178)
+
+[node name="belt" parent="." node_paths=PackedStringArray("next", "package") instance=ExtResource("2_n1r2o")]
+position = Vector2(178, 458)
+next = NodePath("../belt2")
+down = true
+package = NodePath("")
+
+[node name="belt4" parent="." node_paths=PackedStringArray("next", "package") instance=ExtResource("2_n1r2o")]
+position = Vector2(178, 418)
+next = NodePath("../belt")
+down = true
+package = NodePath("")
+
+[node name="belt42" parent="." node_paths=PackedStringArray("next", "package") instance=ExtResource("2_n1r2o")]
+position = Vector2(178, 378)
+next = NodePath("../belt4")
+down = true
+package = NodePath("")
+
+[node name="belt43" parent="." node_paths=PackedStringArray("next", "package") instance=ExtResource("2_n1r2o")]
+position = Vector2(178, 338)
+next = NodePath("../belt42")
+down = true
+package = NodePath("")
+
+[node name="belt44" parent="." node_paths=PackedStringArray("next", "package") instance=ExtResource("2_n1r2o")]
+position = Vector2(178, 298)
+next = NodePath("../belt43")
+down = true
+package = NodePath("")
+
+[node name="belt45" parent="." node_paths=PackedStringArray("next", "package") instance=ExtResource("2_n1r2o")]
+position = Vector2(178, 258)
+next = NodePath("../belt44")
+down = true
+package = NodePath("")
+
+[node name="belt46" parent="." node_paths=PackedStringArray("next", "package") instance=ExtResource("2_n1r2o")]
+position = Vector2(178, 218)
+next = NodePath("../belt45")
+down = true
+package = NodePath("")
+
+[node name="belt47" parent="." node_paths=PackedStringArray("next", "package") instance=ExtResource("2_n1r2o")]
+position = Vector2(178, 178)
+next = NodePath("../belt46")
+down = true
+package = NodePath("")
+
+[node name="storage5" parent="." instance=ExtResource("5_pn2i0")]
+position = Vector2(640, 177)
+
+[node name="Sprite2D" parent="storage5" index="0"]
+position = Vector2(-18, 0)
+texture = ExtResource("6_r2ru6")
+
+[node name="package" parent="storage5/Sprite2D" index="0"]
+visible = false
+
+[node name="Label" parent="storage5" index="1"]
+visible = false
+
+[node name="TextureButton" parent="storage5" index="2"]
+visible = false
+
+[editable path="storage5"]

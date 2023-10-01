@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://clgb6ugvkxhpu"]
+
+[ext_resource type="Texture2D" uid="uid://dybollk05obgm" path="res://textures/blue.png" id="1_3e7ml"]
+[ext_resource type="Script" path="res://scenes/package.gd" id="1_xvwu1"]
+
+[sub_resource type="Animation" id="Animation_eik0s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3tkah"]
+resource_name = "tilt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [0.0, -0.366519, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vo1pk"]
+_data = {
+"RESET": SubResource("Animation_eik0s"),
+"tilt": SubResource("Animation_3tkah")
+}
+
+[node name="package" type="Node2D"]
+script = ExtResource("1_xvwu1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3e7ml")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_vo1pk")
+}

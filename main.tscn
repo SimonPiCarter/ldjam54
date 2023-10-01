@@ -1,0 +1,191 @@
+[gd_scene load_steps=14 format=3 uid="uid://3kt6gpgtpj15"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_0s0jn"]
+[ext_resource type="PackedScene" uid="uid://b5kboq1s17215" path="res://scenes/UI/Shipped.tscn" id="2_hesnc"]
+[ext_resource type="PackedScene" uid="uid://betintjpdqgyi" path="res://scenes/case/belt_chain.tscn" id="2_tls7k"]
+[ext_resource type="Texture2D" uid="uid://bgrw27dxvgtrp" path="res://textures/pause.png" id="3_8reqb"]
+[ext_resource type="Texture2D" uid="uid://cj0fmbi2jitkk" path="res://textures/background.png" id="5_dj23d"]
+[ext_resource type="Texture2D" uid="uid://cb8iqb3xdwucq" path="res://textures/popup_tuto.png" id="6_d8xgf"]
+[ext_resource type="Texture2D" uid="uid://51m6fsmchqq3" path="res://textures/popup.png" id="7_1npuv"]
+[ext_resource type="Texture2D" uid="uid://w8fwnalbr5dp" path="res://textures/button.png" id="7_n44xs"]
+[ext_resource type="Texture2D" uid="uid://cbcds3oj5v7qk" path="res://textures/button_clic.png" id="8_drgd5"]
+[ext_resource type="Texture2D" uid="uid://duarbqdbup0m" path="res://textures/button_hover.png" id="9_73ks4"]
+[ext_resource type="AudioStream" uid="uid://djpwf3ax68d17" path="res://sounds/ship1.ogg" id="11_bc3yh"]
+[ext_resource type="AudioStream" uid="uid://yu0y2uaspa67" path="res://sounds/clic.ogg" id="11_cn02v"]
+[ext_resource type="AudioStream" uid="uid://b6w22wxrkqt04" path="res://sounds/ship2.ogg" id="12_8mt7j"]
+
+[node name="main" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_0s0jn")
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("5_dj23d")
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 8.0
+offset_bottom = 72.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Shipped" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_hesnc")]
+layout_mode = 2
+
+[node name="Shipped2" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_hesnc")]
+layout_mode = 2
+
+[node name="Shipped3" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_hesnc")]
+layout_mode = 2
+
+[node name="Shipped4" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_hesnc")]
+layout_mode = 2
+
+[node name="Shipped5" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_hesnc")]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 21.0
+offset_top = 14.0
+offset_right = 85.0
+offset_bottom = 78.0
+texture_normal = ExtResource("3_8reqb")
+texture_pressed = ExtResource("3_8reqb")
+texture_hover = ExtResource("3_8reqb")
+texture_disabled = ExtResource("3_8reqb")
+texture_focused = ExtResource("3_8reqb")
+
+[node name="score" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 258.0
+offset_top = -574.0
+offset_right = 387.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Score : 0"
+horizontal_alignment = 1
+
+[node name="belt_chain" parent="." instance=ExtResource("2_tls7k")]
+
+[node name="popup_tuto" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+texture = ExtResource("6_d8xgf")
+centered = false
+
+[node name="Label5" type="Label" parent="popup_tuto"]
+offset_left = 283.0
+offset_top = 127.0
+offset_right = 509.0
+offset_bottom = 197.0
+theme_override_font_sizes/font_size = 18
+text = "One does not make jam without breaking pots"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="popup_tuto"]
+offset_left = 317.0
+offset_top = 199.0
+offset_right = 545.0
+offset_bottom = 269.0
+theme_override_font_sizes/font_size = 14
+text = "You need to ship as mush  jam as possible! Do not mix different jams together!"
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="popup_tuto"]
+offset_left = 317.0
+offset_top = 276.0
+offset_right = 545.0
+offset_bottom = 326.0
+theme_override_font_sizes/font_size = 14
+text = "Click on those belts to change their orientation."
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="popup_tuto"]
+offset_left = 317.0
+offset_top = 332.0
+offset_right = 545.0
+offset_bottom = 401.0
+theme_override_font_sizes/font_size = 14
+text = "Package same jams together. If you mix them the jams will be shipped instantly."
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="popup_tuto"]
+offset_left = 317.0
+offset_top = 410.0
+offset_right = 545.0
+offset_bottom = 467.0
+theme_override_font_sizes/font_size = 14
+text = "Sending a jam in this package will send it alone instantly"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Label6" type="Label" parent="popup_tuto"]
+offset_left = 317.0
+offset_top = 481.0
+offset_right = 545.0
+offset_bottom = 519.0
+theme_override_font_sizes/font_size = 14
+text = "You can only send five packages"
+autowrap_mode = 3
+
+[node name="Play" type="TextureButton" parent="popup_tuto"]
+offset_left = 339.0
+offset_top = 533.0
+offset_right = 448.0
+offset_bottom = 555.0
+texture_normal = ExtResource("7_n44xs")
+texture_pressed = ExtResource("8_drgd5")
+texture_hover = ExtResource("9_73ks4")
+
+[node name="popup_score" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+texture = ExtResource("7_1npuv")
+centered = false
+
+[node name="Label" type="Label" parent="popup_score"]
+offset_left = 253.0
+offset_top = 138.0
+offset_right = 523.0
+offset_bottom = 221.0
+text = "Thanks for playing 
+One does not make jam without breaking pots"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="score_popup_text" type="Label" parent="popup_score"]
+offset_left = 270.0
+offset_top = 242.0
+offset_right = 526.0
+offset_bottom = 439.0
+autowrap_mode = 3
+
+[node name="Replay" type="TextureButton" parent="popup_score"]
+offset_left = 340.0
+offset_top = 423.0
+offset_right = 449.0
+offset_bottom = 445.0
+texture_normal = ExtResource("7_n44xs")
+texture_pressed = ExtResource("8_drgd5")
+texture_hover = ExtResource("9_73ks4")
+
+[node name="ship" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_bc3yh")
+volume_db = -8.0
+
+[node name="store" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8mt7j")
+
+[node name="clic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_cn02v")

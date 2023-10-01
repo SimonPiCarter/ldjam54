@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwn3eohpp8qmv"]
+
+[ext_resource type="PackedScene" uid="uid://cjtuurjtmnxbf" path="res://scenes/case/belt.tscn" id="1_fryf6"]
+[ext_resource type="PackedScene" uid="uid://ct4o5tqtn6i1s" path="res://scenes/case/belt_choice.tscn" id="2_2xonc"]
+
+[node name="test_anim" type="Node2D"]
+texture_filter = 1
+
+[node name="belt" parent="." instance=ExtResource("1_fryf6")]
+position = Vector2(2, 18)
+rotate = true
+
+[node name="belt_choice" parent="." instance=ExtResource("2_2xonc")]
+position = Vector2(2, -22)
+rotate = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
